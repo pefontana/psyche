@@ -19,7 +19,7 @@ jobs:
 
       - name: Run decentralized integration test
         run: |
-          nix develop --command bash -c "just decentralized-integration-test"
+          nix develop --command bash -c "USE_GPU=1 just decentralized-integration-test"
 
       - name: Upload test results (if any)
         if: always()
