@@ -20,15 +20,16 @@ max_seq_len = 64
 cold_start_warmup_steps = 0
 
 [model.LLM.checkpoint.Hub]
-repo_id = "pefontana/Nano-Llama"
+repo_id = "emozilla/llama2-20m-init"
 revision = "cf48eac4944f6e954a3d9c9c30e8c865e64e7d03"
 
 [model.LLM.data_location.Http]
 token_size_in_bytes = "TwoBytes"
 shuffle = "DontShuffle"
 
-[model.LLM.data_location.Http.location]
-SingleUrl = "https://huggingface.co/pefontana/Nano-Llama/resolve/main/tiny-ci-dataset/000_tiny-test.ds"
+[model.LLM.data_location.Http.location.Gcp]
+bucket_name = "nous-pretraining-public-us"
+filter_directory = "fineweb-edu-tokenized-llama2"
 
 [model.LLM.lr_schedule.Cosine]
 base_lr = 4.0e-4
